@@ -1,4 +1,4 @@
-function [NVar,I,J,K,VARIABLES,InsightHeader] = openPIVbvec(file)
+function [NVar,I,J,K,VARIABLES,InsightHeader] = openPIVbinaryVec(file)
 %OPENPIVBVEC
 % This function opens the new BINARY vector files on the new Insight V11.1
 % 
