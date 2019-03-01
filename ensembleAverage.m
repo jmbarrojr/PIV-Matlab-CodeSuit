@@ -31,7 +31,7 @@ spmd
     vecfile = strcat(pathDir,slash,vecfile);
     [nc,Iori,Jori] = matrix(vecfile);
     
-    if nc == 5 || nc == 9 || nc == 11 || nc == 12 % Insight 11
+    if nc == 5 || nc == 9 || nc == 11 || nc == 12 || nc == 15% Insight 11
         [~,~,~,Dx,Dy,X,Y,U,V,CHC] = matrix(vecfile);
     elseif nc == 8 || nc == 7
         [~,~,~,Dx,Dy,X,Y,Z,U,V,W,CHC] = matrix(vecfile);
@@ -81,7 +81,7 @@ spmd
     for i=2:length(CompVecList)
         vecfile = CompVecList(i).name;
         vecfile = strcat(pathDir,slash,vecfile);
-        if nc == 5 || nc == 9 || nc == 11 || nc == 12
+        if nc == 5 || nc == 9 || nc == 11 || nc == 12 || nc == 15
             [~,~,~,Dx,Dy,~,~,U,V,CHC] = matrix(vecfile);
         elseif nc == 8 || nc == 7
             [~,~,~,Dx,Dy,~,~,~,U,V,W,CHC] = matrix(vecfile);
@@ -173,7 +173,7 @@ Lciavg = Lciavg./CHCavg;
 Omega_avg = Omega_avg./CHCavg;
 
 % Outputing the variables in cell format
-if nc == 5 || nc == 9 || nc == 11 || nc == 12
+if nc == 5 || nc == 9 || nc == 11 || nc == 12 || nc == 15
     AxisCell = cell(1,2);
     Ucell = cell(1,2);
     % Not an elegant way

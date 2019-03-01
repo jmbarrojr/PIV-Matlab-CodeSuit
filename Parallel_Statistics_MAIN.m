@@ -185,15 +185,15 @@ saver(ResultsFol,'EnsembleAverage.dat',TecplotHeader,vel);
 if direction == 1
     if N == 2
         x = AxisCell{1}(1,:);
-        U = nanmean(Ucell{1},direction);
-        V = nanmean(Ucell{2},direction);
-        uu = nanmean(uiujCell{1},direction);
-        uv = nanmean(uiujCell{2},direction);
-        vv = nanmean(uiujCell{3},direction);
-        Lcil = nanmean(Lciavg,direction);
-        Omegal = nanmean(Omega_avg,direction);
-        lcil = nanmean(lci,direction);
-        omegal = nanmean(omega,direction);
+        U = mean(Ucell{1},direction);
+        V = mean(Ucell{2},direction);
+        uu = mean(uiujCell{1},direction);
+        uv = mean(uiujCell{2},direction);
+        vv = mean(uiujCell{3},direction);
+        Lcil = mean(Lciavg,direction);
+        Omegal = mean(Omega_avg,direction);
+        lcil = mean(lci,direction);
+        omegal = mean(omega,direction);
         tj = I;
         
         TecplotHeader2 = ['VARIABLES="x",'...
@@ -213,19 +213,19 @@ if direction == 1
     elseif N == 3
         
         x = AxisCell{1}(1,:);
-        U = nanmean(Ucell{1},direction);
-        V = nanmean(Ucell{2},direction);
-        W = nanmean(Ucell{3},direction);
-        uu = nanmean(uiujCell{1},direction);
-        uv = nanmean(uiujCell{2},direction);
-        uw = nanmean(uiujCell{3},direction);
-        vv = nanmean(uiujCell{4},direction);
-        vw = nanmean(uiujCell{5},direction);
-        ww = nanmean(uiujCell{6},direction);
-        Lcil = nanmean(Lciavg,direction);
-        Omegal = nanmean(Omega_avg,direction);
-        lcil = nanmean(lci,direction);
-        omegal = nanmean(omega,direction);
+        U = mean(Ucell{1},direction);
+        V = mean(Ucell{2},direction);
+        W = mean(Ucell{3},direction);
+        uu = mean(uiujCell{1},direction);
+        uv = mean(uiujCell{2},direction);
+        uw = mean(uiujCell{3},direction);
+        vv = mean(uiujCell{4},direction);
+        vw = mean(uiujCell{5},direction);
+        ww = mean(uiujCell{6},direction);
+        Lcil = mean(Lciavg,direction);
+        Omegal = mean(Omega_avg,direction);
+        lcil = mean(lci,direction);
+        omegal = mean(omega,direction);
         tj = I;
         
         TecplotHeader2 = ['VARIABLES="y", '...
@@ -253,15 +253,15 @@ elseif direction == 2
     
     if N == 2
         y = AxisCell{2}(:,1);
-        U = nanmean(Ucell{1},direction);
-        V = nanmean(Ucell{2},direction);
-        uu = nanmean(uiujCell{1},direction);
-        uv = nanmean(uiujCell{2},direction);
-        vv = nanmean(uiujCell{3},direction);
-        Lcil = nanmean(Lciavg,direction);
-        Omegal = nanmean(Omega_avg,direction);
-        lcil = nanmean(lci,direction);
-        omegal = nanmean(omega,direction);
+        U = mean(Ucell{1},direction);
+        V = mean(Ucell{2},direction);
+        uu = mean(uiujCell{1},direction);
+        uv = mean(uiujCell{2},direction);
+        vv = mean(uiujCell{3},direction);
+        Lcil = mean(Lciavg,direction);
+        Omegal = mean(Omega_avg,direction);
+        lcil = mean(lci,direction);
+        omegal = mean(omega,direction);
         tj = J;
         
         TecplotHeader2 = ['VARIABLES="y",'...
@@ -280,19 +280,19 @@ elseif direction == 2
         
     elseif N == 3
         y = AxisCell{2}(:,1);
-        U = nanmean(Ucell{1},direction);
-        V = nanmean(Ucell{2},direction);
-        W = nanmean(Ucell{3},direction);
-        uu = nanmean(uiujCell{1},direction);
-        uv = nanmean(uiujCell{2},direction);
-        uw = nanmean(uiujCell{3},direction);
-        vv = nanmean(uiujCell{4},direction);
-        vw = nanmean(uiujCell{5},direction);
-        ww = nanmean(uiujCell{6},direction);
-        Lcil = nanmean(Lciavg,direction);
-        Omegal = nanmean(Omega_avg,direction);
-        lcil = nanmean(lci,direction);
-        omegal = nanmean(omega,direction);
+        U = mean(Ucell{1},direction);
+        V = mean(Ucell{2},direction);
+        W = mean(Ucell{3},direction);
+        uu = mean(uiujCell{1},direction);
+        uv = mean(uiujCell{2},direction);
+        uw = mean(uiujCell{3},direction);
+        vv = mean(uiujCell{4},direction);
+        vw = mean(uiujCell{5},direction);
+        ww = mean(uiujCell{6},direction);
+        Lcil = mean(Lciavg,direction);
+        Omegal = mean(Omega_avg,direction);
+        lcil = mean(lci,direction);
+        omegal = mean(omega,direction);
         tj = J;
         
         TecplotHeader2 = ['VARIABLES="y" '...

@@ -1,6 +1,6 @@
-function TecplotLoaderGUI
+%function TecplotLoaderGUI
 clc
-clear
+% clear
 % TECPLOTLOADERGUI Open and plot Tecplot-like files
 % Bu
 % Bu
@@ -43,9 +43,9 @@ ui.Visible = 'on';
         
         header = velData.textdata{:};
         res = regexp(header,'VARIABLES *= *(?<vars>.*) *', 'names');
-        if ~isempty(res),
+        if ~isempty(res)
             res = regexp([res(1).vars ','],'[" ]*(?<name>[^,]*?)[" ]*,', 'tokens');
-            for ii = 1:length(res),
+            for ii = 1:length(res)
                 
                 %oname{ii} = res{ii}{1};
                 vname{ii} = regexprep(res{ii}{1},'[W]+','_');
@@ -65,6 +65,16 @@ ui.Visible = 'on';
         velData.J = str2double(res.J);
         velData.K = str2double(res.K);
         
+        Y = reshape(velData.data(:,1),velData.J,velData.I);
+        X = reshape(velData.data(:,2),velData.J,velData.I);
+        V = reshape(velData.data(:,3),velData.J,velData.I);
+        U = reshape(velData.data(:,4),velData.J,velData.I);
+        vv = reshape(velData.data(:,5),velData.J,velData.I);
+        uv = reshape(velData.data(:,6),velData.J,velData.I);
+        uu = reshape(velData.data(:,7),velData.J,velData.I);
+        Lci = reshape(velData.data(:,8),velData.J,velData.I);
+        
+        
     end
 
-end
+%end

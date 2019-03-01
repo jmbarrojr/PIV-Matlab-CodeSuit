@@ -48,7 +48,7 @@ spmd
         
         if i == 1
             [nc,Iori,Jori] = matrix(pathvecfile);
-            if nc == 5 || nc == 9 || nc == 11 || nc == 12
+            if nc == 5 || nc == 9 || nc == 11 || nc == 12 || nc == 15
                 [~,~,~,Dx,Dy,X,Y,U,V,CHC] = matrix(pathvecfile);
                 [~,~,X,Y] = WindowFile(crop,Iori,Jori,X,Y);
             elseif nc == 8 || nc == 7
@@ -61,7 +61,7 @@ spmd
             %              Z = Z(crop(4):end-crop(3),crop(1):end-crop(2));
             
         else
-            if nc == 5 || nc == 9 || nc == 11 || nc == 12
+            if nc == 5 || nc == 9 || nc == 11 || nc == 12  || nc == 15
                 [~,~,~,~,~,~,~,U,V,CHC] = matrix(pathvecfile);
             elseif nc == 8 || nc == 7
                 [~,~,~,~,~,~,~,~,U,V,W,CHC] = matrix(pathvecfile);
@@ -106,7 +106,7 @@ spmd
             %savename = strcat(FlucFol,vecfile);
             savename = vecfile(1:end-4);
             savename = strcat('Fluc_',savename,'.dat');
-            if nc == 5 || nc == 9 || nc == 11 || nc == 12
+            if nc == 5 || nc == 9 || nc == 11 || nc == 12 || nc == 15
                 data = mixing(I,J,X,Y,u,v,Lci,Omega,CHC);
             elseif nc == 8 || nc == 7
                 data = mixing(I,J,X,Y,Z,u,v,w,Lci,Omega,CHC);
@@ -114,7 +114,7 @@ spmd
             data = dealNaN(data);
             data = sortrows(data,[2,1]);
             
-            if nc == 5 || nc == 9 || nc == 11 || nc == 12
+            if nc == 5 || nc == 9 || nc == 11 || nc == 12 || nc == 15
                 TecplotHeader = ['VARIABLES="x", "y", "u", "v", "lci", "Omega", "CHC", '...
                     'ZONE I=' num2str(I) ', J=' num2str(J) ', K=1, F=POINT'];
             elseif nc == 8 || nc == 7
