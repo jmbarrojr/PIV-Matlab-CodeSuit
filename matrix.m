@@ -45,7 +45,7 @@ function [nc,I,J,Dx,Dy,varargout] = matrix(path)
 % Check if Vector Field is in Binary
 if strfind(path,'.bvec') ~= 0
     
-    [Nvar,I,J,~,VARIABLES,InsightHeader] = openPIVbvec(path);
+    [Nvar,I,J,~,VARIABLES,InsightHeader] = openPIVbinaryVec(path);
     
     % Identify is field is 2D or Stereo
     if strfind(VARIABLES{3,1},'Z') == 1 % STEREO
