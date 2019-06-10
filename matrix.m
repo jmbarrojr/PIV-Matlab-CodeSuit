@@ -1,4 +1,5 @@
-% MATRIX This code organizes a text file (Tecplot format) in Matlab matrix
+function [nc,I,J,Dx,Dy,varargout] = matrix(path)
+%MATRIX This code organizes a text file (Tecplot format) in Matlab matrix
 % format.
 %
 % input:
@@ -39,8 +40,6 @@
 % Update history:
 % v1 - Original
 % v2 - Added the binary vec file - Julio Barros
-
-function [nc,I,J,Dx,Dy,varargout] = matrix(path)
 
 % Check if Vector Field is in Binary
 if strfind(path,'.bvec') ~= 0

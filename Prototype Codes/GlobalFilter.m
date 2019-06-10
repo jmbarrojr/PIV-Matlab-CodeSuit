@@ -11,7 +11,8 @@ function [Uf,Vf,CHCf] = GlobalFilter(U,V,CHC,Urange,Vrange,nstd)
 % OIST - 2019
 
 %% CHC Filter
-CHC(CHC<0) = 0;    
+%CHC(CHC<0) = 0;
+CHC = double(CHC > 0);
 Uf = U .* CHC;
 Vf = V .* CHC;
 CHCf = CHC;
