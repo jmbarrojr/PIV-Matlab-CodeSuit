@@ -9,7 +9,7 @@ path = uigetdir('D:\Experiments11\',...
             
 pathImg = strrep(path,'Analysis','RawData');
 
-files = dir([path filesep '*.LA.par']);
+files = dir([path filesep 'i*.LA.par']);
 filesImg = dir([pathImg filesep '*.tif']);
 
 N = length(files);
@@ -20,7 +20,7 @@ Img = imread([pathImg filesep filesImg(1).name]);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Global filter PARAMETERS
-Urange = [-0.1 0.1];
+Urange = [-1.5 1.5];
 Vrange = [-30 0];
 nstd = 100;
 %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -34,19 +34,21 @@ Vm = zeros(sy,sx);
 CHCm = zeros(sy,sx);
         
 %% ENSEMBLE AVEGARE
-parfor n=N-195:N
-    
+parfor n=N-1000:N
     filename = [path filesep files(n).name];
-    [~,~,U,V,CHC,~,~] = openPTVfile(filename,sy,sx);
+    [~,~,Upar,Vpar,CHCpar,~,~] = openPTVfile(filename,sy,sx);
     
-    [Uf,Vf,CHCf] = GlobalFilter(U,V,CHC,Urange,Vrange,nstd);
+    [Uf,Vf,CHCf] = GlobalFilter(Upar,Vpar,CHCpar,Urange,Vrange,nstd);
     
 %     figure(1),quiver(X,Y,U,V,50,'k'),axis equal tight
 %     title(files(n).name), hold on
 %     figure(1),quiver(X,Y,Uf,Vf,50,'r'),axis equal tight
 %     drawnow
     
-    CHC = double(CHC>0);
+    CHCpar = double(CHCpar>0);
+    
+    %%%%%%%
+    % DEBUG
     
     %Xm = Xm + X;
     %Ym = Ym + Y;
@@ -64,6 +66,8 @@ Vm = Vm ./ CHCm;
 Um(CHCm == 0) = NaN;
 Vm(CHCm == 0) = NaN;
 
+disp('DONE!')
+
 %% FIGURES
 % Mean Vector Field
 figure(2),quiver(X,Y,Um,Vm,10),axis equal tight
@@ -75,7 +79,8 @@ figure(3),contourf(X,Y,Vm),axis equal tight
 y = Y(:,1);
 x = X(1,:);
 
-U_profile = nanmean(Vm(355:450,:),1);
-%U_profile = nanmean(Um(:,95:105),2);
-figure(4),plot(x,U_profile)
+load('22Feb2019_x=40cm_experiment_profile.mat')
 
+U_profile = nanmean(Vm(350:450,:),1);
+%U_profile = nanmean(Um(:,95:105),2);
+figure(4),plot(x,-U_profile,y,U,'k')

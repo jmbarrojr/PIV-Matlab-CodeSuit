@@ -12,10 +12,11 @@ clear
 close all
 clc
 
+addpath(genpath([pwd filesep 'Support and Functions']))
+
 %%%%%%%%%%%%%
 % USER INPUTS
 %%%%%%%%%%%%%
-
 %ext = input('Type, the extention of the files to be processed (eg: *.vec): ','s');
 type = input('Type if it is 2D, Stereo, 3D: ','s');
 
